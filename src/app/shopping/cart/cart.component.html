@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Cart</h1>
+    <div class="alert alert-success" *ngIf="removeCart">Cart item deleted successfully.</div>
+  </div>
+  <div class="container">
+    <!-- <div class="alert alert-danger" *ngIf="cart.items === null || cart.items.length === 0; else cartItems"> -->
+        <div class="alert alert-danger" *ngIf="isEmpty">
+      No items in cart. Use 'Add to Cart' option in menu item list.</div>
+    <ul class="list-group" *ngIf="!isEmpty">
+      <li class="list-group-item" *ngFor="let item of cart?.menuItemList">
+        <div class="row">
+          <span class="col-7 col-md-7 col-lg-7 text-muted h5">{{item.name}}</span>
+          <span class="col-5 col-md-5 col-lg-5 text-right">
+            <small class="text-danger">{{item.price | currency:'INR'}}</small>
+            <div class="text-muted truyum">
+              <a class="cart-delete">  <i class="material-icons text-muted pointer" (click)="onRemoveItem(item.id)">delete_forever</i></a>
+            </div>
+          </span>
+        </div>
+      </li>
+      <li class="list-group-item" >
+        <div class="row">
+          <span class="col-7 col-md-7 col-lg-7 h4">Total</span>
+          <span class="col-5 col-md-5 col-lg-5 text-danger text-right">{{cart?.total | currency:'INR'}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>

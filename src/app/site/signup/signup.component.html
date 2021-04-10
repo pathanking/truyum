@@ -1,0 +1,137 @@
+<!-- <div class="row justify-content-center mt-3">
+  <div class="col-sm-12 col-md-6 col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Signup</h2>
+        <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username"  ngModel name="username" #username="ngModel" placeholder="Enter Username" required>
+            <div class="text-danger" *ngIf="username.touched &&  !username.valid">
+              Username is required
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-12 col-md-6 col-lg-6 ">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName"  ngModel name="firstName" #firstName="ngModel" placeholder="Enter First Name" required>
+                <div class="text-danger" *ngIf="firstName.touched &&  !firstName.valid">
+                  First Name is required
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 ">
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName"  ngModel name="lastName" #lastName="ngModel" placeholder="Enter Last Name" required>
+                <div class="text-danger" *ngIf="lastName.touched &&  !lastName.valid">
+                  Last Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-12  col-md-6 col-lg-6">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password"  ngModel name="password" #password="ngModel" placeholder="Enter Password" required>
+                <div class="text-danger" *ngIf="password.touched &&  !password.valid">
+                  Password is required
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 ">
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword"  ngModel name="confirmPassword" #confirmPassword="ngModel" placeholder="Enter Confirm Password" required>
+                <div class="text-danger" *ngIf="confirmPassword.touched &&  !confirmPassword.valid">
+                  Confirm Password is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Signup</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+<p>
+    signup works!
+  </p>
+  <div class="row justify-content-center mt-3">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Signup</h2>
+  
+          <form [formGroup]="signupForm">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter Username"
+                formControlName="userName">
+              <div class="alert alert-danger small"
+                *ngIf="signupForm.get('userName').invalid && signupForm.get('userName').touched">
+                Please enter username !
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-sm-12 col-md-6 col-lg-6 ">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Enter First Name"
+                    formControlName="firstName">
+                  <div class="alert alert-danger small"
+                    *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').touched">
+                    Please enter first name !
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 ">
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name"
+                    formControlName="lastName">
+                  <div class="alert alert-danger small"
+                    *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').touched">
+                    Please enter last name !
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-sm-12  col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                    formControlName="password">
+                  <div class="alert alert-danger small"
+                    *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
+                    Please enter password !
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 ">
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" placeholder="Enter Confirm Password"
+                    formControlName="confirmPassword">
+                  <!-- <div class="alert alert-danger small"
+                    *ngIf="password.value != confirmPassword.value && signupForm.get('confirmPassword').untouched && signupForm.get('password').touched">
+                    Password & Confirm Password doesn't match !
+                  </div> -->
+                  <div class="alert alert-danger small"
+                    *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched">
+                    Please enter confirm password !
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+            <button class="btn btn-primary" type="button" (click)="onSubmit()">Signup</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

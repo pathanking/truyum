@@ -1,0 +1,7 @@
+<app-search></app-search>
+<div class="container-fluid ">
+        <div class="row mt-2 mb-5 ">
+                <app-item-info *ngFor="let food of filteredFood" class="col-12 col-md-6 col-lg-3 mt-2" [food]="food" (addedToFavorite)="addFoodToCart($event)">
+                </app-item-info>
+        </div>
+</div>

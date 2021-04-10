@@ -1,0 +1,74 @@
+<p>
+  item-edit works!
+</p>
+<h2>Edit Menu Item</h2>
+<div class="alert alert-success" *ngIf="saved">
+  Menu Item details saved successfully.
+</div>
+<form [formGroup]="editForm" (submit)="onSaveClick(editForm.value)" *ngIf="!saved">
+  <div class="row">
+    <div class="form-group col-12 col-md-12 col-lg-12">
+      <label for="title">Item Name</label>
+      <input type="text" class="form-control" id="title" formControlName="name">
+      <div class="text-danger" *ngIf="editForm.get('name').touched && editForm.get('name').hasError('required')">
+        Item Name is required</div>
+      <div class="text-danger" *ngIf="editForm.get('name').touched && editForm.get('name').hasError('maxlength')">Title cannot exceed 200 characters
+      </div>
+    </div>
+    <div class="form-group col-12 col-md-12 col-lg-3">
+      <label for="image">Photo URL</label>
+      <input type="text" class="form-control" id="title" formControlName="url">
+      <div class="text-danger" *ngIf="editForm.get('url').touched && editForm.get('url').hasError('required')">
+        Photo URL is required</div>
+    </div>
+    <div class="form-group col-12 col-md-12 col-lg-3">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" formControlName="price">
+      <div class="text-danger" *ngIf="editForm.get('price').touched && editForm.get('price').hasError('required')">
+        Price is required</div>
+      <div class="text-danger" *ngIf="editForm.get('price').touched && editForm.get('price').hasError('pattern')">
+        Price can only contain numbers.</div>
+    </div>
+    <div class="form-group col-12 col-md-12 col-lg-3">
+      <label for="dateOfLaunch">Date Of Launch</label>
+      <input type="text" class="form-control" id="dateOfLaunch" formControlName="dateOfLaunch" placeholder="dd/mm/yyyy">
+      <!-- <div class="validation-error">Incorrect date format</div> -->
+    </div>
+    <div class="form-group col-12 col-md-12 col-lg-3">
+      <label for="category">Category</label>
+      <select id="category" class="form-control" formControlName="category">
+        <option *ngFor="let category of categories">{{category}}</option>
+        <!-- <option value="Main Course">Main Course</option>
+        <option value="Starter">Starter</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Drinks">Drinks</option> -->
+      </select>
+      <div class="text-danger" *ngIf="editForm.get('category').touched && editForm.get('category').hasError('required')">
+        Select at least one category</div>
+    </div>
+    <div class="form-group col-12 col-md-12 col-lg-3">
+      <div>Active</div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio"  id="active" [value]="true" formControlName="active">
+        <label class="form-check-label" for="active">
+          Yes
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio"  id="inactive" [value]="false" formControlName="active">
+        <label class="form-check-label" for="inactive">
+          No
+        </label>
+      </div>
+      <div class="text-danger" *ngIf="editForm.get('active').hasError('required')">Select in stock status.
+      </div>
+    </div>
+    <div class="form-group col-12 col-md-12 col-lg-3">
+      <div class="form-check  form-check-inline">
+        <input type="checkbox" class="form-check-input" id="freeDelivery" formControlName="freeDelivery">
+      </div>
+      <label for="freeDelivery">Free Delivery </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Save</button>
+</form>

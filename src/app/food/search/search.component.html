@@ -1,0 +1,11 @@
+<div class="jumbotron text-light">
+  <div class="container-fluid">
+      <h2>Find Food</h2>
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text"><i class="material-icons">local_cafe</i></div>
+          </div>
+          <input type="text" class="form-control" placeholder="Search Food" [(ngModel)]="searchKey"(input)="onSearchText($event)">
+      </div>
+  </div>
+</div>

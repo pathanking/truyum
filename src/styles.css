@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+/* include stylesheet for truYum */
+.material-icons{
+    vertical-align: middle;
+}
+.navbar{
+    background-color: #fc5102;
+}
+.cart-delete{
+    cursor: pointer;
+}
+footer{
+    opacity: 0.9;  
+}
+.container-fluid{
+    margin-bottom: 100px;
+}
+.local-shipping{
+    color: #00039c
+}
+.add-to-cart{
+    background-color: #fc5102;
+}
+.jumbotron {
+    background-image:url("https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+    background-size:75%;
+ }
+.cart-empty{
+    background-color: #fd9090;
+    opacity: 0.8;
+    color: #500000;
+}
+.login-validation{
+    background-color: #94f5f5;
+    color:#0977aa;
+}
